@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="header__menu">
+            <a class="header__menu__link" href="https://www.aluracursos.com">Alura</a>
+        </nav>
+    </header>
+    <main class="presentacion">
+        <section class="presentacion__contenido">
+            <h1 class="presentacion__contenido__titulo">
+                ingrese su texto 
+                <strong class="titulo-destaque">a continuación:
+                </strong></h1>
+                <textarea id="inputTexto" placeholder="texto en español aquí..."></textarea>
+                <p class="presentacion__contenido__texto"><img src="./assets/github.png">
+                utiliza minusculas sin acentuación 
+                </p>
+                <div class="presentacion__enlaces">
+                    <h2 class="presentacion__enlaces__subtitulo" id="nomo"><textarea id="outputTexto" placeholder="Texto encriptado aquí..." ></textarea></h2>
+                    <button onclick="encriptar()" class="presentacion__enlaces__link" >
+                    Encriptar</button>
+                    <button onclick="desencriptar()" class="presentacion__enlaces__link" >
+                    Desencriptar</button>
+                    
+                    <button onclick="copiarTexto()" class="presentacion__enlaces__link" >
+                    copiar encriptado
+                    </button>
+                    
+                    <button onclick="copiarTexto2()" class="presentacion__enlaces__link" >
+                        copiar en español
+                        </button>
+                </div>
+               <script>
+        function encriptar() {
+            // Obtener el texto ingresado por el usuario
+            let texto = document.getElementById("inputTexto").value;
+
+            // Reemplazar las letras según las reglas especificadas
+            let textoEncriptado = texto
+                .replace(/e/g, "enter")
+                .replace(/i/g, "imes")
+                .replace(/a/g, "ai")
+                .replace(/o/g, "ober")
+                .replace(/u/g, "ufat");
+
+            // Mostrar el texto encriptado
+            document.getElementById("outputTexto").value = textoEncriptado;
+        }
+        function desencriptar() {
+            // Obtener el texto ingresado por el usuario
+            let texto = document.getElementById("outputTexto").value;
+
+            // Reemplazar las letras según las reglas especificadas
+            let textoEncriptado = texto
+                .replace(/enter/g, "e")
+                .replace(/imes/g, "i")
+                .replace(/ai/g, "a")
+                .replace(/ober/g, "o")
+                .replace(/ufat/g, "u");
+
+            // Mostrar el texto encriptado
+            document.getElementById("inputTexto").value = textoEncriptado;
+        }
+        function copiarTexto() {
+            // Seleccionar el elemento del textarea
+            let texto = document.getElementById("outputTexto");
+
+            // Seleccionar el texto del textarea
+            texto.select();
+            texto.setSelectionRange(0, 99999); // Para móviles
+
+            // Copiar el texto al portapapeles
+            document.execCommand("copy");
+
+            // Mostrar un mensaje de éxito (opcional)
+            alert("Texto copiado: " + texto.value);
+        }
+        function copiarTexto2() {
+            // Seleccionar el elemento del textarea
+            let texto = document.getElementById("inputTexto");
+
+            // Seleccionar el texto del textarea
+            texto.select();
+            texto.setSelectionRange(0, 99999); // Para móviles
+
+            // Copiar el texto al portapapeles
+            document.execCommand("copy");
+
+            // Mostrar un mensaje de éxito (opcional)
+            alert("Texto copiado: " + texto.value);
+        }
+    </script>
+        </section>
+            <img class="presentacion__imagen" src="./assets/Imagen.png" alt="diseño de busqueda">
+    </main>
+    <footer class="footer">
+        <p>Desarrollado por Erwin Alec</p>
+    </footer>
+    <script src="app.js"> </script>
+</body>
+</html>
